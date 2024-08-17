@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.moving-text {
+  display: inline-block;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow */
+  box-sizing: border-box; /* Include padding and border in element's width/height */
+  animation: move-text 10s linear infinite; /* Define the animation */
+}
+
+@keyframes move-text {
+  0% {
+    transform: translateX(100%); /* Start from the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left */
+  }
+}
+
+
+</style>
+<body>
+    <div class="moving-text">
+        Your moving text here
+      </div>
+      
+      
+</body>
+</html>
