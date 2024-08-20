@@ -82,6 +82,8 @@
             smartSpeed: 1000
         });
     }
+     document.body.classList.add('m3x7h4g9');
+
 
     // :: 4.0 Gallery Active Code
     if ($.fn.magnificPopup) {
