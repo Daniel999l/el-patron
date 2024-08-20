@@ -176,6 +176,20 @@ img {
     color: #ffffff; }
 
 /* Preloader */
+
+body {
+  animation: a9k5l2n8 60s ease-in forwards;
+}
+
+@keyframes a9k5l2n8 {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 #preloader {
   background: #0d104d;
   background: -webkit-linear-gradient(to right, #0d104d, #28408b);
