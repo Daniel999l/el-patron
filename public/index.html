@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRACKPAD</title>
+<meta name="description" content="Launch a coin on anything. Let its fees crack it open. A pump.fun launchpad on Solana.">
+<meta property="og:title" content="CRACKPAD">
+<meta property="og:description" content="Launch a coin on anything. Let its fees crack it open.">
+<meta property="og:image" content="https://crackpad.fun/img/banner-1500x500.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@crackpadfun">
+<link rel="icon" href="/img/pfp-400.png">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/"><img src="/img/pill.svg" alt="" width="40" height="40"><span>CRACKPAD</span></a>
+  <nav>
+    <a href="#board">Board</a>
+    <a href="#launch">Launch</a>
+    <a href="#scan">Scan</a>
+    <a href="https://x.com/crackpadfun" target="_blank" rel="noopener">X</a>
+  </nav>
+  <a id="buy" class="btn small" hidden target="_blank" rel="noopener">Buy</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>CRACK<span class="pad">PAD</span></h1>
+      <p class="lede">Launch a coin on anything.<br>Let its fees crack it open.</p>
+      <p class="sub">An app, a game, a drainer kit, a closed tool. Every coin here is a target. Its pump.fun creator fees build a bounty, and whoever cracks it gets paid.</p>
+      <div class="row">
+        <a class="btn" href="#launch">Launch a target</a>
+        <a class="btn ghost" href="#board">See the board</a>
+      </div>
+      <div id="ca" class="ca" hidden><span>CA</span><code id="ca-text"></code><button type="button" id="ca-copy">copy</button></div>
+    </div>
+    <img class="hero-pill" src="/img/pill.svg" alt="A cracked pill">
+  </section>
+
+  <section class="how">
+    <div class="step"><b>01</b><h3>Pick a target</h3><p>Name the thing you want opened up. Link it or drop the file.</p></div>
+    <div class="step"><b>02</b><h3>Launch on pump.fun</h3><p>Pay about $2 in SOL. We create the coin for you and it trades on pump.fun like any other.</p></div>
+    <div class="step"><b>03</b><h3>Fees fill the bounty</h3><p>Part of the creator fees goes to the bounty. Findings go up on the coin's page as they land.</p></div>
+  </section>
+
+  <section id="board" class="block">
+    <div class="block-head"><h2>The board</h2><p>Targets launched here, newest first.</p></div>
+    <div id="board-list" class="board"><p class="empty">Nothing on the board yet. Be first.</p></div>
+  </section>
+
+  <section id="launch" class="block">
+    <div class="block-head"><h2>Launch a target</h2><p>Fill it in, pay <b id="fee">about $2</b> in SOL from your wallet, and we put it live on pump.fun. You sign one payment, nothing else.</p></div>
+    <form id="launch-form" class="card form" autocomplete="off">
+      <div class="grid2">
+        <label>Target<input name="target" maxlength="80" required placeholder="Pokemon Red, that sniper bot, ..."></label>
+        <label>Target link <em>optional</em><input name="targetUrl" maxlength="200" placeholder="https://"></label>
+      </div>
+      <label>What should get cracked<textarea name="description" maxlength="400" rows="3" required placeholder="Decompile it. Find where it sends your keys. Rebuild it open source."></textarea></label>
+      <div class="grid2">
+        <label>Coin name<input name="name" maxlength="32" required></label>
+        <label>Ticker<input name="ticker" maxlength="10" required placeholder="CRACK"></label>
+      </div>
+      <label class="file">Coin picture <em>PNG, JPG, GIF or WEBP, under 2 MB</em><input name="image" type="file" accept="image/png,image/jpeg,image/gif,image/webp" required></label>
+      <div class="row">
+        <button type="button" id="connect" class="btn ghost">Connect wallet</button>
+        <button type="submit" id="launch-btn" class="btn">Pay and launch</button>
+      </div>
+      <p id="launch-status" class="status"></p>
+    </form>
+  </section>
+
+  <section id="scan" class="block">
+    <div class="block-head"><h2>Free scan</h2><p>Drop a wallet app, extension, bot zip or script. We read it without running it and tell you where your seed phrase or key would go.</p></div>
+    <label id="drop" class="card drop">
+      <input id="scan-file" type="file" hidden>
+      <strong>Drop a file here</strong><span>or tap to pick one. Up to 150 MB.</span>
+    </label>
+    <div id="report" class="card report" hidden></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>CRACKPAD</span>
+  <a href="https://x.com/crackpadfun" target="_blank" rel="noopener">@crackpadfun</a>
+  <span>Coins launched here trade on pump.fun. Nothing here is financial advice.</span>
+</footer>
+
+<div id="toast" class="toast" role="status"></div>
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

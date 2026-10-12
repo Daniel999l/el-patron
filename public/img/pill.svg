@@ -1,0 +1,17 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="40 40 330 330">
+<defs><clipPath id="L"><polygon points="-220,-74 -4,-70 7,-52 -5,-34 8,-16 -6,2 7,20 -5,38 6,56 -3,70 -220,74"/></clipPath><clipPath id="Rr"><polygon points="-4,-70 7,-52 -5,-34 8,-16 -6,2 7,20 -5,38 6,56 -3,70 220,74 220,-74"/></clipPath><clipPath id="P"><rect x="-127" y="-51" width="254" height="102" rx="51"/></clipPath></defs>
+<g transform="translate(200 222) rotate(-32)">
+  <g transform="translate(-20 6) rotate(-5)"><g clip-path="url(#L)"><rect x="-132" y="-56" width="264" height="112" rx="56" fill="#0B0B0B" stroke="#0B0B0B" stroke-width="10"/></g>
+    <polyline clip-path="url(#P)" points="-4,-70 7,-52 -5,-34 8,-16 -6,2 7,20 -5,38 6,56 -3,70" fill="none" stroke="#0B0B0B" stroke-width="10" stroke-linejoin="round"/></g>
+  <g transform="translate(20 -6) rotate(5)"><g clip-path="url(#Rr)"><rect x="-132" y="-56" width="264" height="112" rx="56" fill="#F7F3EA" stroke="#0B0B0B" stroke-width="10"/></g>
+    <polyline clip-path="url(#P)" points="-4,-70 7,-52 -5,-34 8,-16 -6,2 7,20 -5,38 6,56 -3,70" fill="none" stroke="#0B0B0B" stroke-width="10" stroke-linejoin="round"/>
+    <rect x="-132" y="-56" width="264" height="112" rx="56" fill="none" stroke="#0B0B0B" stroke-width="10" clip-path="url(#Rr)"/></g>
+</g>
+<g font-family="Rubik Mono One, monospace" fill="#0B0B0B" text-anchor="middle">
+  <text x="190" y="150" font-size="24" transform="rotate(-18 190 150)">0x</text>
+  <text x="238" y="118" font-size="19" transform="rotate(10 238 118)">{}</text>
+  <text x="176" y="104" font-size="15" transform="rotate(-28 176 104)">01</text>
+  <text x="214" y="80" font-size="12" transform="rotate(8 214 80)">ff</text>
+</g>
+</svg>
