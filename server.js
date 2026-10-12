@@ -6,6 +6,7 @@ import { checkFile } from './lib/checker/index.js';
 import { prepareLaunch, submitLaunch, boardCoins, launchFeeLamports, launcherAddress, UserError } from './lib/launch.js';
 import { initDb, saveReport, getReport, usingMongo } from './lib/db.js';
 import { pumpUrl } from './lib/solana.js';
+import { coinData, CoinError } from './lib/coin.js';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
@@ -26,13 +27,13 @@ const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 150
 
 // Small in-memory rate limit: 12 per minute per IP and bucket.
 const hits = new Map();
-function limited(key) {
+function limited(key, max = 12) {
   const now = Date.now();
   const arr = (hits.get(key) || []).filter((t) => now - t < 60_000);
   arr.push(now);
   hits.set(key, arr);
   if (hits.size > 5000) hits.delete(hits.keys().next().value);
-  return arr.length > 12;
+  return arr.length > max;
 }
 
 const userError = (res, e) => {
@@ -103,6 +104,18 @@ app.post('/api/launch/submit', async (req, res) => {
 app.get('/api/coins', async (_req, res) => {
   res.json(await boardCoins().catch(() => []));
 });
+
+app.get('/api/coin/:mint', async (req, res) => {
+  if (limited('coin:' + req.ip, 40)) return res.status(429).json({ error: 'Too many lookups. Wait a minute.' });
+  try { res.json(await coinData(req.params.mint)); }
+  catch (e) {
+    if (e instanceof CoinError) return res.status(e.status).json({ error: e.message });
+    console.error('coin', e);
+    res.status(500).json({ error: 'Could not read that coin. Try again.' });
+  }
+});
+
+app.get('/c/:mint', (_req, res) => res.sendFile(path.join(ROOT, 'public', 'coin.html')));
 
 app.get('/vendor/web3.js', (_req, res) => {
   res.type('application/javascript').sendFile(path.join(ROOT, 'node_modules/@solana/web3.js/lib/index.iife.min.js'));

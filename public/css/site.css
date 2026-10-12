@@ -104,7 +104,9 @@ main { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 .toast.show { visibility: visible; transform: translate(-50%, 0); }
 
 /* coin page */
-.coin-page { padding: 48px 0; }
+.coin-page { padding: 48px 24px; }
+.coin-page .top-row > div { min-width: 0; }
+.coin-page .ca { max-width: 100%; border: var(--line); font: inherit; text-align: left; }
 .coin-page .top-row { display: grid; grid-template-columns: 140px 1fr; gap: 22px; align-items: center; }
 .coin-page .top-row img { width: 140px; height: 140px; object-fit: cover; border: var(--line); box-shadow: var(--shadow); }
 .bounty { font-family: 'Rubik Mono One', monospace; font-size: 22px; }
@@ -120,7 +122,66 @@ main { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
   .step + .step { border-left: 0; border-top: var(--line); }
   .grid2, .grid3 { grid-template-columns: 1fr; }
   .board { grid-template-columns: 1fr; }
+  .coin-page { padding: 32px 16px; }
   .coin-page .top-row { grid-template-columns: 90px 1fr; }
+  .stat b { font-size: 15px; }
   .coin-page .top-row img { width: 90px; height: 90px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, .toast { transition: none; } }
+
+/* REA, loud on purpose */
+.rea-badge { display: inline-flex; align-items: stretch; border: var(--line); margin-bottom: 22px; box-shadow: var(--shadow); text-decoration: none; }
+.rea-badge b { font-family: 'Rubik Mono One', monospace; font-weight: 400; background: var(--k); color: var(--y); padding: 6px 12px; font-size: 22px; }
+.rea-badge span { background: var(--w); padding: 8px 12px; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; align-self: center; }
+.rea-check { display: flex; gap: 0; margin-top: 26px; max-width: 560px; border: var(--line); box-shadow: var(--shadow); background: var(--w); }
+.rea-check label { font-family: 'Rubik Mono One', monospace; background: var(--k); color: var(--y); padding: 12px; font-size: 14px; display: flex; align-items: center; }
+.rea-check input { flex: 1; min-width: 0; border: 0; padding: 12px; font: 15px 'Archivo', sans-serif; background: #fff; }
+.rea-check button { border: 0; border-left: var(--line); background: var(--y); font-family: 'Rubik Mono One', monospace; padding: 0 16px; cursor: pointer; }
+.rea-band { background: var(--k); color: var(--y); border-top: var(--line); border-bottom: var(--line); padding: 26px 24px; margin-bottom: 64px; }
+.rea-band .inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.rea-band .big { font-family: 'Rubik Mono One', monospace; font-size: clamp(64px, 12vw, 140px); line-height: .85; }
+.rea-band h2 { font-family: 'Unbounded', sans-serif; font-weight: 900; text-transform: uppercase; margin: 0 0 8px; font-size: clamp(20px, 3vw, 30px); }
+.rea-band p { margin: 0; color: var(--w); max-width: 620px; }
+
+/* coin page */
+.coin-name { font-size: clamp(36px, 7vw, 64px); margin: 6px 0 0; line-height: 1; word-break: break-all; }
+.coin-sub { margin: 4px 0 12px; font-weight: 800; font-size: 18px; }
+.coin-page .ca { cursor: pointer; margin-top: 0; }
+.coin-page > section { margin-bottom: 24px; }
+.coin-page .row .tag { display: inline-block; font: 800 11px 'Archivo', sans-serif; text-transform: uppercase; border: 2px solid var(--k); padding: 1px 6px; }
+.coin-page .row .tag.done { background: var(--k); color: var(--y); }
+.coin-page .row { gap: 6px; }
+.coin-desc { font-size: 17px; max-width: 720px; }
+.target h2 { margin: 0 0 6px; font-size: 24px; }
+.target p { margin: 0 0 6px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); border: var(--line); background: var(--w); box-shadow: var(--shadow); }
+.stat { padding: 16px; border-right: var(--line); border-bottom: var(--line); }
+.stat:nth-child(3n) { border-right: 0; }
+.stat:nth-last-child(-n+3) { border-bottom: 0; }
+.stat span { display: block; font-size: 12px; font-weight: 800; text-transform: uppercase; opacity: .7; }
+.stat b { font-family: 'Rubik Mono One', monospace; font-weight: 400; font-size: 18px; }
+.stat em { font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 800; opacity: 1; }
+.stat em.up { color: var(--green); }
+.stat em.down { color: var(--red); }
+.stat.pot { background: var(--k); color: var(--y); }
+.bar { height: 22px; border: var(--line); background: #fff; }
+.bar i { display: block; height: 100%; background: var(--k); }
+.curve p { margin: 8px 0 0; }
+.rea-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 8px; }
+.rea-mark { font-family: 'Rubik Mono One', monospace; font-size: 54px; line-height: .9; }
+.rea-sub { font-weight: 800; text-transform: uppercase; font-size: 13px; }
+.holders { width: 100%; border-collapse: collapse; }
+.holders td { border-top: 2px solid var(--k); padding: 6px 4px; }
+.holders td:last-child { text-align: right; font-weight: 800; }
+.holders .tag { font: 800 10px 'Archivo', sans-serif; text-transform: uppercase; border: 2px solid var(--k); padding: 0 4px; }
+.note { font-size: 13px; opacity: .7; }
+
+@media (max-width: 760px) {
+  .rea-band .inner { grid-template-columns: 1fr; gap: 10px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stat { border-right: var(--line) !important; border-bottom: var(--line) !important; }
+  .stat:nth-child(2n) { border-right: 0 !important; }
+  .stat:nth-last-child(-n+2) { border-bottom: 0 !important; }
+  .rea-mark { font-size: 40px; }
+  .rea-check label { font-size: 12px; padding: 10px; }
+}

@@ -45,7 +45,7 @@ async function loadBoard() {
   const list = await api('/api/coins').catch(() => []);
   if (!list.length) return;
   $('board-list').innerHTML = list.map((c) => `
-    <a class="coin" href="${esc(c.url)}" target="_blank" rel="noopener">
+    <a class="coin" href="/c/${esc(c.mint)}">
       <img src="${esc(c.image || '/img/pfp-400.png')}" alt="" loading="lazy">
       <div>
         <h3>$${esc(c.ticker)} <span class="t">${esc(c.name)}</span></h3>
@@ -192,6 +192,12 @@ function wireDrop() {
   drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); scan(e.dataTransfer.files[0]); });
 }
 
+$('rea-check').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const ca = $('rea-ca').value.trim();
+  if (!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(ca)) return toast('That is not a Solana coin address.');
+  location.href = `/c/${ca}`;
+});
 $('connect').onclick = connect;
 $('launch-form').addEventListener('submit', launch);
 wireDrop();

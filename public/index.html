@@ -28,6 +28,7 @@
 <main>
   <section class="hero">
     <div class="hero-text">
+      <a class="rea-badge" href="#rea"><b>REA</b><span>Powered by Reverse Engineer Anything</span></a>
       <h1>CRACK<span class="pad">PAD</span></h1>
       <p class="lede">Launch a coin on anything.<br>Let its fees crack it open.</p>
       <p class="sub">An app, a game, a drainer kit, a closed tool. Every coin here is a target, and its pump.fun creator fees go into the bounty pot for cracking it.</p>
@@ -35,11 +36,27 @@
         <a class="btn" href="#launch">Launch a target</a>
         <a class="btn ghost" href="#board">See the board</a>
       </div>
+      <form id="rea-check" class="rea-check" autocomplete="off">
+        <label for="rea-ca">REA</label>
+        <input id="rea-ca" placeholder="Paste any Solana coin CA" maxlength="64" spellcheck="false">
+        <button type="submit">Check</button>
+      </form>
       <div id="ca" class="ca" hidden><span>CA</span><code id="ca-text"></code><button type="button" id="ca-copy">copy</button></div>
     </div>
     <img class="hero-pill" src="/img/pill.svg" alt="A cracked pill">
   </section>
 
+</main>
+<section id="rea" class="rea-band">
+  <div class="inner">
+    <div class="big">REA</div>
+    <div>
+      <h2>Reverse Engineer Anything</h2>
+      <p>Every coin here gets an REA teardown, live from the chain: can more be minted, can wallets be frozen, hidden taxes, who holds what. Paste any Solana CA above, or drop a wallet app, extension or bot in the REA scan below and see where your keys would go.</p>
+    </div>
+  </div>
+</section>
+<main>
   <section class="how">
     <div class="step"><b>01</b><h3>Pick a target</h3><p>Name the thing you want opened up. Link it or drop the file.</p></div>
     <div class="step"><b>02</b><h3>Launch on pump.fun</h3><p>Pay about $2 in SOL. We create the coin for you and it trades on pump.fun like any other.</p></div>
